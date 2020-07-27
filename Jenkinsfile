@@ -24,10 +24,10 @@ pipeline {
 	        }
 	      }
 	    }
-		stage('Pushing Image') {
+	   stage('Pushing Image') {
 	      steps{
 	        script {
-	          sh "echo 4444"
+	          sh "echo 9999999"
 	        }
 	      }
 		}     
