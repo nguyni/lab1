@@ -41,7 +41,8 @@ pipeline {
 		stage('Pushing Image') {
 	      steps{
 	        script {
-	          sh "echo 5555"
+	           docker.withRegistry( '', registryCredential ) {
+		   dockerImage.push() 
 	        }
 	      }
 		}     
