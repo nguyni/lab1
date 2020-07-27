@@ -9,30 +9,35 @@ pipeline {
                 git 'https://github.com/nguyni/lab1.git'
               }
             }
-            stage('Building image') {
-              steps{
-                script {
-                  sh "ls -l"
-		  sh "docker build -t my-nginx_01 ."
-                  sh "docker run -d -p 443:8123 my-nginx_01"
-                }
-              }
-            }
-            stage('Testing image') {
-              steps{
-                script {
-                  sh "echo 3333"
-                }
-              }
-            }
-                stage('Pushing Image') {
-              steps{
-                script {
-                  sh "echo 5555"
-                }
-              }
-                }
-        }
+	    stage('Build Image') {
+	      steps{
+	        script {
+	          sh "docker build -t my-web ."
+	        }
+	      }
+	    }
+	    stage('Deploy Test Server') {
+	      steps{
+	        script {
+	          sh "./deploy-test.sh ${env.BUILD_ID} my-web"
+	        }
+	      }
+	    }
+	    stage('Testing image') {
+	      steps{
+	        script {
+	          sh "echo 3333"
+	        }
+	      }
+	    }
+		stage('Pushing Image') {
+	      steps{
+	        script {
+	          sh "echo 5555"
+	        }
+	      }
+		}     
+	}
 }
 
 
