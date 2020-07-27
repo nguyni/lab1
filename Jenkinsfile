@@ -6,7 +6,7 @@ pipeline {
 
             stage('Cloning Git') {
               steps {
-                git 'https://github.com/schogini/HOOK-TEST-P02-GITHUB.git'
+                git 'https://github.com/nguyni/lab1.git'
               }
             }
             stage('Building image') {
