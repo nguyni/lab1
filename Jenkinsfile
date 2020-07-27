@@ -3,7 +3,7 @@ pipeline {
   environment {
     image = "nguyni/my-nginx_Dev"
     registryCredential = "docker-hub"
-    slackChannelTest = credentials('slack-test')
+    //slackChannelTest = credentials('slack-test')
     dockerImage = ''
   }
 
