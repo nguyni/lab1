@@ -1,5 +1,12 @@
 pipeline {
 
+  environment {
+    image = "nguyni/my-nginx_Dev"
+    registryCredential = "docker-hub"
+    slackChannelTest = credentials('Nhuan#2020GH')
+    dockerImage = ''
+  }
+
   agent any
 
   stages {
@@ -12,14 +19,15 @@ pipeline {
 	    stage('Build Image') {
 	      steps{
 	        script {
-	          sh "docker build -t my-nginx_01 ."
+	          //sh "docker build -t my-nginx_01 ."
+                  dockerimage = docker.build image + ":$BUILD_NUMBER"
 	        }
 	      }
 	    }
 	    stage('Deploy Test Server') {
 	      steps{
 	        script {
-	          sh "./deploy-test.sh ${env.BUILD_ID} my-web"
+	          sh "./deploy-test.sh ${env.BUILD_ID} ${env.image}:${env.BUILD_ID}"
 	        }
 	      }
 	    }
