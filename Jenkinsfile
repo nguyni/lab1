@@ -20,7 +20,7 @@ pipeline {
 	      steps{
 	        script {
 	          //sh "docker build -t my-nginx_01 ."
-                  dockerImage = docker.build my-nginx_Dev + ":$BUILD_NUMBER"
+                  dockerImage = docker.build image + ":$BUILD_NUMBER"
 	        }
 	      }
 	    }
