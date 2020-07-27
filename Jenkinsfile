@@ -41,11 +41,11 @@ pipeline {
 	   stage('Pushing Image') {
 	      steps{
 	        script {
-	           docker.withRegistry( 'Nhuan#2020DH', registryCredential ) {
+	           docker.withRegistry( '', registryCredential ) {
 		   dockerImage.push() 
 	        }
 	      }
-		}     
+	    }     
 	}
   }
 }
