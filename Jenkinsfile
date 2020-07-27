@@ -12,7 +12,7 @@ pipeline {
 	    stage('Build Image') {
 	      steps{
 	        script {
-	          sh "docker build -t my-web ."
+	          sh "docker build -t my-nginx_01 ."
 	        }
 	      }
 	    }
