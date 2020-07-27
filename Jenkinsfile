@@ -31,13 +31,6 @@ pipeline {
 	        }
 	      }
 	    }
-	    stage('Testing image') {
-	      steps{
-	        script {
-	          sh "echo 3333"
-	        }
-	      }
-	    }
 	   stage('Pushing Image') {
 	      steps{
 	        script {
