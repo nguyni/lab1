@@ -44,7 +44,7 @@ pipeline {
 			sh "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"July 27 Build ${env.BUILD_ID} Failed!\"}' ${env.slackChannelTest}"
 		  }else{
 
-			sh "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Build ${env.BUILD_ID} Succeeded!\"}' ${env.slackChannelTest}"
+			//sh "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Build ${env.BUILD_ID} Succeeded!\"}' ${env.slackChannelTest}"
 		}
 
 
